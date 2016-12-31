@@ -8,7 +8,11 @@
 
 import Foundation
 import UIKit
-
+extension CGRect {
+	mutating func offsetInPlace(dx: CGFloat, dy: CGFloat) {
+		self = self.offsetBy(dx: dx, dy: dy)
+	}
+}
 class Caption {
     var view = UITextView()
     var text = ""
@@ -30,12 +34,12 @@ class Caption {
         self.view.sizeToFit()
         self.view.frame.origin = CGPoint(x: 0, y: 0)
         self.view.frame.insetBy(dx: -self.padding, dy: 0)
-        self.view.frame.offsetBy(dx: -self.view.frame.width / 2, dy: 0)
+        self.view.frame.offsetInPlace(dx: -self.view.frame.width / 2, dy: 0)
         
-        self.view.frame.offsetBy(dx: self.parentView!.frame.width/2, dy: 0)
+        self.view.frame.offsetInPlace(dx: self.parentView!.frame.width/2, dy: 0)
         
         //self.view.frame.offsetInPlace(dx: 0, dy: CGFloat.random(-self.parentView!.frame.height, self.parentView!.frame.height))
-        self.view.frame.offsetBy(dx: 0, dy: CGFloat(Float(slot) / Float(Caption.n_slots+1)) * self.parentView!.frame.height * 2 - self.parentView!.frame.height / 2)
+        self.view.frame.offsetInPlace(dx: 0, dy: CGFloat(Float(slot) / Float(Caption.n_slots+1)) * self.parentView!.frame.height * 2 - self.parentView!.frame.height / 2)
 
         // Start invisible
         self.view.alpha = 0
