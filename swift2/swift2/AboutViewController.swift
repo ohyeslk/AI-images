@@ -1,9 +1,9 @@
 //
 //  AboutViewController.swift
-//  AI • Scry
+//  AI Image
 //
-//  Created by Sam Kronick on 2/11/16.
-//  Copyright © 2016 Disk Cactus. All rights reserved.
+//  Created by Kai Lu on 2/11/16.
+//  Copyright © 2016 Kai Lu. All rights reserved.
 //
 
 import UIKit

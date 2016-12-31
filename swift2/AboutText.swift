@@ -1,14 +1,14 @@
 //
 //  AboutText.swift
-//  AI • Scry
+//  AI Image
 //
-//  Created by Sam Kronick on 2/12/16.
-//  Copyright © 2016 Disk Cactus. All rights reserved.
+//  Created by Kai Lu on 2/12/16.
+//  Copyright © 2016 Kai Lu. All rights reserved.
 //
 
 import Foundation
 
-let aboutDiagramURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("diagram", ofType: "png")!)
+let aboutDiagramURL = URL(fileURLWithPath: Bundle.main.path(forResource: "diagram", ofType: "png")!)
 
 let aboutStyle = "<!doctype html><head>" +
                  //"<meta name='viewport' content='width=300, user-scalable=no, initial-scale=1.0' />" +

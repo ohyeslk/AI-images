@@ -1,9 +1,9 @@
 //
 //  SpeechDelegate.swift
-//  Scrying Mirror
+//  AI Image
 //
-//  Created by Sam Kronick on 2/6/16.
-//  Copyright © 2016 Disk Cactus. All rights reserved.
+//  Created by Kai Lu on 2/6/16.
+//  Copyright © 2016 Kai Lu. All rights reserved.
 //
 
 import Foundation
@@ -14,11 +14,11 @@ class SpeechDelegate : NSObject, AVSpeechSynthesizerDelegate {
     var isSpeaking = false
     
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didFinishSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         self.isSpeaking = false
     }
     
-    func speechSynthesizer(synthesizer: AVSpeechSynthesizer, didStartSpeechUtterance utterance: AVSpeechUtterance) {
+    func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
         self.isSpeaking = true
     }
 }

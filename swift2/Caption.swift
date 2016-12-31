@@ -1,9 +1,9 @@
 //
 //  Caption.swift
-//  Scrying Mirror
+//  AI Image
 //
-//  Created by Sam Kronick on 1/26/16.
-//  Copyright © 2016 Disk Cactus. All rights reserved.
+//  Created by Kai Lu on 1/26/16.
+//  Copyright © 2016 Kai Lu. All rights reserved.
 //
 
 import Foundation
@@ -29,18 +29,18 @@ class Caption {
         self.view.contentInset = UIEdgeInsetsMake(0, self.padding, 0, self.padding)
         self.view.sizeToFit()
         self.view.frame.origin = CGPoint(x: 0, y: 0)
-        self.view.frame.insetInPlace(dx: -self.padding, dy: 0)
-        self.view.frame.offsetInPlace(dx: -self.view.frame.width / 2, dy: 0)
+        self.view.frame.insetBy(dx: -self.padding, dy: 0)
+        self.view.frame.offsetBy(dx: -self.view.frame.width / 2, dy: 0)
         
-        self.view.frame.offsetInPlace(dx: self.parentView!.frame.width/2, dy: 0)
+        self.view.frame.offsetBy(dx: self.parentView!.frame.width/2, dy: 0)
         
         //self.view.frame.offsetInPlace(dx: 0, dy: CGFloat.random(-self.parentView!.frame.height, self.parentView!.frame.height))
-        self.view.frame.offsetInPlace(dx: 0, dy: CGFloat(Float(slot) / Float(Caption.n_slots+1)) * self.parentView!.frame.height * 2 - self.parentView!.frame.height / 2)
+        self.view.frame.offsetBy(dx: 0, dy: CGFloat(Float(slot) / Float(Caption.n_slots+1)) * self.parentView!.frame.height * 2 - self.parentView!.frame.height / 2)
 
         // Start invisible
         self.view.alpha = 0
         //self.view.frame = parentView!.frame
-        self.view.opaque = false
+        self.view.isOpaque = false
         self.view.layer.allowsEdgeAntialiasing = true
 
     }
@@ -58,14 +58,14 @@ class Caption {
         let endOffAxis = CGFloat.random(-0.5, 0.5)
         
         self.view.layer.transform = CATransform3DMakeRotation(startRot, 0, 1, startOffAxis)
-        UIView.animateWithDuration(self.duration, delay: 0, options: .CurveLinear, animations: {
+        UIView.animate(withDuration: self.duration, delay: 0, options: .curveLinear, animations: {
             self.view.layer.transform = CATransform3DMakeRotation(endRot, 0, 1, endOffAxis)
             }, completion: nil)
         
-        UIView.animateWithDuration(self.duration * 0.1, delay: 0, options: .CurveLinear, animations: {
+        UIView.animate(withDuration: self.duration * 0.1, delay: 0, options: .curveLinear, animations: {
             self.view.alpha = 0.8
             }, completion: { finished in
-                UIView.animateWithDuration(self.duration * 0.1, delay: self.duration * 0.8, options: .CurveLinear, animations: {
+                UIView.animate(withDuration: self.duration * 0.1, delay: self.duration * 0.8, options: .curveLinear, animations: {
                     self.view.alpha = 0
                 }, completion: { f in self.exit() })
 
